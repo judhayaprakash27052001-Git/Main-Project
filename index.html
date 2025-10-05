@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Welcome — Main Project</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg1: #020617;
+      --bg2: #0f172a;
+      --accent1: #6366f1;
+      --accent2: #14b8a6;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --glass: rgba(255, 255, 255, 0.05);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at 20% 20%, rgba(99,102,241,0.1), transparent 50%),
+                  radial-gradient(circle at 80% 80%, rgba(20,184,166,0.1), transparent 50%),
+                  linear-gradient(180deg, var(--bg1), var(--bg2));
+      color: var(--text);
+      overflow: hidden;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1s forwards;
+    }
+
+    p {
+      max-width: 600px;
+      color: var(--muted);
+      margin-top: 10px;
+      font-size: 18px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1s 0.3s forwards;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 16px;
+      margin-top: 30px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1s 0.6s forwards;
+    }
+
+    .btn {
+      padding: 12px 28px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 12px;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      color: white;
+      box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(99, 102, 241, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.05);
+      transform: translateY(-4px);
+    }
+
+    .floating-bg {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99,102,241,0.25), transparent 60%);
+      animation: float 10s infinite ease-in-out;
+    }
+
+    .floating-bg.two {
+      background: radial-gradient(circle, rgba(20,184,166,0.25), transparent 60%);
+      animation-delay: 5s;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(20px, -30px) scale(1.1); }
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="floating-bg" style="top:10%; left:15%;"></div>
+  <div class="floating-bg two" style="bottom:10%; right:15%;"></div>
+
+  <div class="container">
+    <h1>Welcome to the Main Project</h1>
+    <p>This is your main project’s elegant welcome page with animated backgrounds, smooth transitions, and responsive design — perfect as a professional landing experience.</p>
+
+    <div class="buttons">
+      <button class="btn btn-primary" onclick="getStarted()">Enter Project</button>
+      <button class="btn btn-secondary" onclick="learnMore()">Learn More</button>
+    </div>
+  </div>
+
+  <footer>© 2025 Your Project Name. All rights reserved.</footer>
+
+  <script>
+    function getStarted() {
+      alert('Entering the main project... (link this to your dashboard or app)');
+    }
+
+    function learnMore() {
+      window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});
+    }
+  </script>
+</body>
+</html>
